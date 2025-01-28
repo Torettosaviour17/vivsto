@@ -136,9 +136,7 @@ function StockDetail() {
             </h2>
 
             <p className="text-gray-300 leading-relaxed text-sm sm:text-base px-4 sm:px-0 mb-8 relative left-[-5px]">
-              {stock.name} operates as a company in the Nigerian market. The
-              company provides various services and products to its customers,
-              maintaining a strong presence in the local business environment.
+              {stock.name}{stock.about}
             </p>
 
             {/* Chart Section */}
