@@ -6,13 +6,12 @@ import { stockData } from "../data/stockData";
 import StockMetrics from "./stock/StockMetrics";
 
 import {
+  ResponsiveContainer,
+  AreaChart,
   LineChart,
   Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
+  Area,
   Tooltip,
-  ResponsiveContainer,
 } from "recharts";
 
 import {
@@ -136,7 +135,8 @@ function StockDetail() {
             </h2>
 
             <p className="text-gray-300 leading-relaxed text-sm sm:text-base px-4 sm:px-0 mb-8 relative left-[-5px]">
-              {stock.name}{stock.about}
+              {stock.name}
+              {stock.about}
             </p>
 
             {/* Chart Section */}
@@ -145,31 +145,29 @@ function StockDetail() {
               <div className="w-full h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px] ">
                 <ResponsiveContainer width="100%" height="100%">
                   {stockChart === "1D" && (
-                    <LineChart data={firstDay}>
-                      <Line
-                        type="linear"
+                    <AreaChart data={firstDay} dot={false}>
+                      <Area
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
+                        type="linear"
                         stroke="purple"
-                        strokeWidth={1}
-                        dot={false}
-                        f
                       />
                       <Tooltip
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                   {stockChart === "7d" && (
-                    <LineChart data={firstWeek}>
+                    <AreaChart data={firstWeek}>
                       {/* Add a custom path */}
-                      <Line
+                      <Area
                         type="linear"
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
                         stroke="purple"
                         strokeWidth={1}
                         dot={false}
-                        fill="#8884d8"
                         shape={(props) => {
                           const { points } = props;
                           const pathData = points.reduce(
@@ -196,61 +194,62 @@ function StockDetail() {
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                   {stockChart === "1m" && (
-                    <LineChart data={firstMonth}>
-                      <Line
+                    <AreaChart data={firstMonth}>
+                      <Area
                         type="linear"
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
                         stroke="purple"
                         strokeWidth={1}
                         dot={false}
-                        f
                       />
                       <Tooltip
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                   {stockChart === "3m" && (
-                    <LineChart data={threeMonth}>
-                      <Line
+                    <AreaChart data={threeMonth}>
+                      <Area
                         type="linear"
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
                         stroke="purple"
                         strokeWidth={1}
                         dot={false}
-                        f
                       />
                       <Tooltip
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                   {stockChart === "1y" && (
-                    <LineChart data={firstYear}>
-                      <Line
+                    <AreaChart data={firstYear}>
+                      <Area
                         type="linear"
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
                         stroke="purple"
                         strokeWidth={1}
                         dot={false}
-                        f
                       />
                       <Tooltip
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                   {stockChart === "3y" && (
-                    <LineChart data={threeYear}>
-                      <Line
+                    <AreaChart data={threeYear}>
+                      <Area
                         type="linear"
                         dataKey="uv"
+                        fill="rgba(128, 0, 128, 0.3)"
                         stroke="purple"
                         strokeWidth={1}
                         dot={false}
@@ -259,7 +258,7 @@ function StockDetail() {
                         contentStyle={{ display: "none" }} // Hides the tooltip box
                         cursor={{ stroke: "white", strokeWidth: 1 }}
                       />
-                    </LineChart>
+                    </AreaChart>
                   )}
                 </ResponsiveContainer>
               </div>

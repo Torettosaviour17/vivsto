@@ -1,11 +1,13 @@
 // chartArray.js
 export const firstDay = [
-  { uv: 200 },
-  { uv: 50 },
-  { uv: 10 },
-  { uv: 100 },
-  { uv: 50 },
-  { uv: 190 },
+  { uv: 350 },
+  { uv: 600 },
+  { uv: 150 },
+  { uv: 500 },
+  { uv: 350 },
+  { uv: 400 },
+  { uv: 300 },
+  { uv: 500 },
 ];
 export const firstWeek = [
   { uv: 20 },
