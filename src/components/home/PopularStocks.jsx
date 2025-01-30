@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Slider from "react-slick";
-import { stockData } from "../../data/stockData";
+import { foreignStocks } from "../stock/foreignStocks";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -66,7 +66,7 @@ function PopularStocks() {
     ],
   };
 
-  const stocksWithChanges = stockData.map((stock, index) => ({
+  const stocksWithChanges = foreignStocks.map((stock, index) => ({
     stock,
     change: index % 2 === 0 ? -3.46 : 30.46,
   }));

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import WalletHeader from "../components/wallet/WalletHeader";
 import AssetBalance from "../components/wallet/AssetBalance";
 import AssetChart from "../components/wallet/AssetChart";
-import { FaArrowRight, FaLock } from "react-icons/fa";
+import { FaArrowRight, FaCopy, FaLock } from "react-icons/fa";
 import DepositModal from "../components/modals/DepositModal";
 import WithdrawModal from "../components/modals/WithdrawModal";
 
@@ -29,7 +29,7 @@ function Wallet() {
   };
 
   return (
-    <div className="px-4 py-6">
+    <div className="px-4 py-6 w-full">
       <WalletHeader />
       <AssetBalance
         amount={balance.toFixed(2)}
@@ -68,15 +68,30 @@ function Wallet() {
         className="bg-[#1E1E1E] text-white py-2 px-4 rounded-[20px] h-[80px] font-semibold flex justify-between gap-[30px] mt-8 -top-[60px] relative my-[60px] text-center items-center align-middle"
         onClick={() => navigate("/fixed")}
       >
-        <div className="flex flex-col gap-[6px] items-center">
+        <div className=" items-center">
           <span className="opacity-[0.3] font-normal flex items-center">
             <FaLock size={20} className="inline-block mr-2 text-[#bc14ff]" />
             Fixed
           </span>
-          <span className="opacity-[0.7]">${balance.toFixed(2)}</span>
+          <span className="opacity-[0.7] text-white">
+            ${balance.toFixed(2)}
+          </span>
         </div>
         <div className="text-center opacity-[0.3]">
           <FaArrowRight size={20} />
+        </div>
+      </div>
+      <h1 className="relative bottom-[110px] text-2xl font-bold">
+        Referral Link
+      </h1>
+      <div className="relative bottom-[100px] bg-[#1E1E1E] text-white     font-semibold flex rounded-[20px] flex-col gap-[6px] justify-start items-center">
+        <div className="rounded-[20px] w-full px-4 h-[80px] py-2 bg-[#000] flex items-center justify-center group cursor-pointer hover:bg-gray-900 transition-colors ">
+          <span className=" text-sm max-sm:text-[13px]">
+            https://Vivstock.com/username
+          </span>
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity">
+            <FaCopy size={13} />
+          </span>
         </div>
       </div>
 

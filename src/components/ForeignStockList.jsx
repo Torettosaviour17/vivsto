@@ -1,20 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { IoArrowBack, IoClose, IoSearch } from 'react-icons/io5';
-import { IoMdSwap } from 'react-icons/io';
-import { stockData } from '../data/stockData';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { IoArrowBack, IoClose, IoSearch } from "react-icons/io5";
+import { IoMdSwap } from "react-icons/io";
+import { foreignStocks } from "./stock/foreignStocks"; // import your foreign stock data
 
-function StockList() {
+function ForeignStockList() {
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredStocks = stockData.filter(stock => 
-    stock.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    stock.symbol.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredForeignStocks = foreignStocks.filter(
+    (stock) =>
+      stock.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      stock.symbol.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const clearSearch = () => {
-    setSearchTerm('');
+    setSearchTerm("");
   };
 
   const handleStockClick = (symbol) => {
@@ -25,8 +26,14 @@ function StockList() {
     <div className="px-4 py-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-4">
-          <IoArrowBack size={24} onClick={() => navigate(-1)} className="cursor-pointer" />
-          <h1 className="text-xl font-semibold text-center">Search Stocks</h1>
+          <IoArrowBack
+            size={24}
+            onClick={() => navigate(-1)}
+            className="cursor-pointer"
+          />
+          <h1 className="text-xl font-semibold text-center">
+            Search Foreign Stocks
+          </h1>
         </div>
       </div>
 
@@ -35,15 +42,15 @@ function StockList() {
           <IoSearch size={24} className="text-gray-400 mr-2" />
           <input
             type="text"
-            placeholder="Search Local stocks"
-            className="flex-1 bg-transparent outline-none "
+            placeholder="Search Foreign stocks"
+            className="flex-1 bg-transparent outline-none"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           {searchTerm && (
-            <IoClose 
-              size={24} 
-              className="text-gray-400 cursor-pointer" 
+            <IoClose
+              size={24}
+              className="text-gray-400 cursor-pointer"
               onClick={clearSearch}
             />
           )}
@@ -52,12 +59,12 @@ function StockList() {
 
       <div className="mb-6">
         <div className="flex w-[200px] h-[45px] items-center gap-2 mb-4 border-b border-t border-gray-800 pb-2">
-          <h2 className="text-xl font-semibold">Featured Stocks</h2>
+          <h2 className="text-xl font-semibold">Featured Foreign Stocks</h2>
           <IoMdSwap className="text-[#7d26cd]" size={24} />
         </div>
 
         <div className="space-y-1">
-          {filteredStocks.map((stock) => (
+          {filteredForeignStocks.map((stock) => (
             <div
               key={stock.symbol}
               className="flex items-center justify-between cursor-pointer hover:bg-[#1E1E1E] p-2 transition-colors border-b border-gray-700"
@@ -85,4 +92,4 @@ function StockList() {
   );
 }
 
-export default StockList;
+export default ForeignStockList;

@@ -4,6 +4,7 @@ import { MdOutlineAnalytics } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import { RiHistoryLine } from "react-icons/ri";
 import { IoWalletOutline } from "react-icons/io5";
+// import { foreignStocks } from "./stock/foreignStocks";
 import { stockData } from "../data/stockData";
 
 const Sidebar = ({ hideOnMobile }) => {
